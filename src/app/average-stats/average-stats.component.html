@@ -1,0 +1,73 @@
+<h2>Season Averages</h2>
+<div class="table-wrapper">
+  <div class="overlay" *ngIf="state !== 'pending'">
+    <mat-spinner
+      *ngIf="state === 'loading'"
+      aria-label="statistics is loading"
+    ></mat-spinner>
+    <span *ngIf="state === 'error'" class="error-message">
+      Something is wrong with API. Please try again later
+    </span>
+  </div>
+  <div class="table-container">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      matSort
+      matSortStart="desc"
+      matSortDisableClear="true"
+    >
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let player">{{ player.name }}</td>
+      </ng-container>
+      <ng-container matColumnDef="min">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Minutes</th>
+        <td mat-cell *matCellDef="let player">{{ player.min }}</td>
+      </ng-container>
+      <ng-container matColumnDef="pts">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Points</th>
+        <td mat-cell *matCellDef="let player">{{ player.pts }}</td>
+      </ng-container>
+      <ng-container matColumnDef="reb">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Rebounds</th>
+        <td mat-cell *matCellDef="let player">{{ player.reb }}</td>
+      </ng-container>
+      <ng-container matColumnDef="ast">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Assists</th>
+        <td mat-cell *matCellDef="let player">{{ player.ast }}</td>
+      </ng-container>
+      <ng-container matColumnDef="stl">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Steals</th>
+        <td mat-cell *matCellDef="let player">{{ player.stl }}</td>
+      </ng-container>
+      <ng-container matColumnDef="blk">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Blocks</th>
+        <td mat-cell *matCellDef="let player">{{ player.blk }}</td>
+      </ng-container>
+      <ng-container matColumnDef="turnover">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Turnovers</th>
+        <td mat-cell *matCellDef="let player">{{ player.turnover }}</td>
+      </ng-container>
+      <ng-container matColumnDef="fg_pct">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>FG %</th>
+        <td mat-cell *matCellDef="let player">{{ player.fg_pct }}</td>
+      </ng-container>
+      <ng-container matColumnDef="fg3_pct">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>3FG %</th>
+        <td mat-cell *matCellDef="let player">{{ player.fg3_pct }}</td>
+      </ng-container>
+      <ng-container matColumnDef="ft_pct">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>FT %</th>
+        <td mat-cell *matCellDef="let player">{{ player.ft_pct }}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <tr *matNoDataRow class="empty-table-row">
+        <td [attr.colspan]="displayedColumns.length" class="empty-table-cell">
+          Add more players to see averages
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

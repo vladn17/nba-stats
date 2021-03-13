@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  background-color: #00000017;
+  border-radius: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  min-height: 4rem;
+  box-shadow: 0 5px 5px -3px rgb(0 0 0 / 25%), 0 8px 10px 1px rgb(0 0 0 / 18%),
+    0 3px 10px 2px rgb(0 0 0 / 20%);
+}
+
+.mat-icon-button {
+  align-self: center;
+}
+
+.player-info {
+  padding: 0.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.player-info_accented {
+  background-color: var(--color-primary);
+  width: 50%;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.player-info__value {
+  margin: 0;
+}
+
+.player-info__label {
+  margin: 0;
+  color: #bdbdbd;
+  font-size: 0.75rem;
+}
+
+.player__teamlogo {
+  display: flex;
+  place-items: center;
+  margin-right: 0.2rem;
+}
+
+.logo {
+  width: 3.75rem;
+  height: 3.75rem;
+}

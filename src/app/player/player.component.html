@@ -1,0 +1,50 @@
+<div class="player__teamlogo">
+  <img
+    class="logo"
+    [alt]="player.team.full_name + ' logo'"
+    [src]="'assets/logos/' + player.team.abbreviation + '.svg'"
+  />
+</div>
+<div class="player-info player-info_accented">
+  <p class="player-info__value">
+    {{ player.first_name + " " + player.last_name }}
+  </p>
+  <p class="player-info__label">
+    {{ player.position || "N/A" }} | {{ player.team.full_name }}
+  </p>
+</div>
+<div class="player-info">
+  <p class="player-info__value">
+    {{
+      player.height_feet && player.height_inches
+        ? player.height_feet! + "'" + player.height_inches!
+        : "N/A"
+    }}
+  </p>
+  <p class="player-info__label">Height</p>
+</div>
+<div class="player-info">
+  <p class="player-info__value">
+    {{ player.weight_pounds ? player.weight_pounds! + "lb" : "N/A" }}
+  </p>
+  <p class="player-info__label">Weight</p>
+</div>
+<button
+  mat-icon-button
+  aria-label="Remove player"
+  color="primary"
+  (click)="remove()"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    width="24"
+    height="24"
+  >
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path
+      d="M7 11v2h10v-2H7zm5-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+    />
+  </svg>
+</button>

@@ -1,0 +1,25 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: auto;
+  max-width: 56rem;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #303030;
+  background-image: linear-gradient(#00000099, #00000099),
+    url("assets/background.jpg");
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  body {
+    background-image: linear-gradient(#00000099, #00000099),
+      url("assets/background-small.jpg");
+  }
+}

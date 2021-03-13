@@ -1,0 +1,4 @@
+<app-player
+  *ngFor="let player of this.playersStore.players$ | async"
+  [player]="player"
+></app-player>
